@@ -85,5 +85,14 @@ namespace ProductReviewManagementTest
             int actual = ProductReviewManager.ReturnsOnlyIsLikeFieldAsTrue();
             Assert.AreEqual(expected, actual);
         }
+        //UC-10
+        [TestMethod]
+        public void TestMethodForAverageRating()
+        {
+            double expected = 12.44;
+            double actual = ProductReviewManager.AverageOfRating();
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
