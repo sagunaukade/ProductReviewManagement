@@ -94,5 +94,13 @@ namespace ProductReviewManagementTest
             Assert.AreEqual(expected, actual);
 
         }
+        //UC-11
+        [TestMethod]
+        public void TestMethodForReturnsCountOfReviewMessageContainsGood()
+        {
+            int expected = 5;
+            int actual = ProductReviewManager.ReturnsReviewMessageContainsGood();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
