@@ -98,7 +98,7 @@ namespace ProductReviewManagement
             return res;
         }
         /// <summary>
-        /// UC5---->Retrieving the product id in list
+        /// UC5 and UC7---->Retrieving the product id in list
         /// </summary>
         /// <param name="products"></param>
         /// <returns></returns>
