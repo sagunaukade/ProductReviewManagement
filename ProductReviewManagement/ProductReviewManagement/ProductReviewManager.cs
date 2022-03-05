@@ -97,5 +97,35 @@ namespace ProductReviewManagement
             }
             return res;
         }
+        /// <summary>
+        /// UC5---->Retrieving the product id in list
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
+        public static string RetrieveOnlyProductIdAndReviews(List<ProductReview> products)
+        {
+            string result = null;
+            AddingProductReview(products);
+            var res = products.Select(product => new { ProductId = product.productId, Review = product.review }).ToList();
+            foreach (var ele in res)
+            {
+                Console.WriteLine("ProductId " + ele.ProductId + " " + "Review " + " " + ele.Review);
+                result += ele.ProductId + " ";
+            }
+            return result;
+        }
+        /// <summary>
+        /// UC6--->Skip Top five records
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
+        public static int SkipTopFiveRecords(List<ProductReview> products)
+        {
+            AddingProductReview(products);
+            Console.WriteLine("\nSkip Top Five records in list");
+            var res = (from product in products orderby product.rating descending select product).Skip(5).ToList();
+            IterateThroughList(res);
+            return res.Count;
+        }
     }
 }
