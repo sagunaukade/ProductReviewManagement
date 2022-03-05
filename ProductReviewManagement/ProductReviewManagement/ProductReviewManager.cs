@@ -66,5 +66,36 @@ namespace ProductReviewManagement
             IterateThroughList(res);
             return res.Count;
         }
+        /// <summary>
+        /// UC3-->Retrieve  records from list based on productid and rating > 3  
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
+        public static int[] RetrieveRecordsBasedOnRatingAndProductId(List<ProductReview> products)
+        {
+            AddingProductReview(products);
+            Console.WriteLine("\nRetrieve Records Based On Rating and Product Id");
+            var res = (from product in products where product.rating > 3 && (product.productId == 1 || product.productId == 4 || product.productId == 9) select product.productId).ToArray();
+            return res;
+        }
+        /// <summary>
+        ///  UC4-->Retrived the count of productId
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
+        public static string CountingProductId(List<ProductReview> products)
+        {
+            string res = null;
+            AddingProductReview(products);
+            var data = products.GroupBy(x => x.productId).Select(a => new { ProductId = a.Key, count = a.Count() });
+            Console.WriteLine(data);
+            foreach (var ele in data)
+            {
+                Console.WriteLine("ProductId " + ele.ProductId + " " + "Count " + " " + ele.count);
+                res += ele.ProductId + " " + ele.count + " ";
+                Console.WriteLine(res);
+            }
+            return res;
+        }
     }
 }
