@@ -75,5 +75,15 @@ namespace ProductReviewManagementTest
             int actual = ProductReviewManager.SkipTopFiveRecords(productList);
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// UC9-retrieve the records whose column islike has true using (DataTable)
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForReturnsOnlyIsLikeFieldAsTrue()
+        {
+            int expected = 18;
+            int actual = ProductReviewManager.ReturnsOnlyIsLikeFieldAsTrue();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
